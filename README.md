@@ -38,3 +38,7 @@ fit= do.call(RIAQ, args = args)
 
 Beta_hat = fit$Bhat
 ```
+
+## Reference 
+
+> Zeng, Hao, Chuang Wan, Wei Zhong, and Tuo Liu. 2023. “Robust Integrative Analysis via Quantile Regression with Homogeneity and Sparsity.” Working paper.

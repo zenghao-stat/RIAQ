@@ -1,0 +1,21 @@
+Package: RIAQ
+Type: Package
+Title: Robust Integrative Analysis via Quantile Regression with Homogeneity and Sparsity
+Version: 0.1.0
+Date: 2023-06-16
+Authors@R: 
+    c(person("Hao", "Zeng", email = "zenghao@stu.xmu.edu.cn", role = c("aut","cre")),
+    person("Chuang", "Wan", email = "wanchuang@nankai.edu.cn", role = "aut"),
+    person("Wei", "Zhong", email = "wzhong@xmu.edu.cn", role = "aut"),
+    person("Tuo", "Liu", email = "liutuo2017@xmu.edu.cn", role = "aut"))
+Maintainer: Hao Zeng <zenghao@stu.xmu.edu.cn>
+Description: The RIAQ package provides a robust integrative analysis framework based on quantile regression with homogeneity and sparsity. Integrative analysis aims to combine heterogeneous data from multiple datasets to gain a comprehensive understanding of the underlying data features. Traditional least squares estimation methods can be unreliable in the presence of outliers and heavy-tailed data. To address this, the RIAQ approach employs robust quantile regression, which can handle non-normal and heavy-tailed data, to account for the homogeneity and sparsity in multiple datasets. The RIAQ approach incorporates sample information from multiple datasets, improving estimation efficiency, while the inclusion of a sparse model enhances model interpretability by identifying the relevant high-dimensional covariates. Moreover, quantile regression enables the detection of subgroup structures at different quantile levels, providing a comprehensive picture of the relationship between the response and high-dimensional covariates. The package implements an alternating direction method of multipliers (ADMM) algorithm to efficiently solve the optimization problem and ensures convergence. Additionally, the package includes the derivation of parameter selection consistency using the modified Bayesian information criterion. Numerical studies demonstrate the satisfactory finite-sample performance of the proposed estimator, particularly in heavy-tailed cases.
+License: GPL-3
+Depends: 
+    R (>= 3.5.0),
+    quantreg,
+    rqPen,
+    Matrix,
+    matrixcalc
+RoxygenNote: 7.2.0
+Encoding: UTF-8

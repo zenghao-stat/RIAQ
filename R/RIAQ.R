@@ -143,7 +143,7 @@ thresh_est <- function(z, lambda, tau, a = 3, penalty = c("MCP", "SCAD", "lasso"
 #' \dontrun{
 #' dgp = 'dgp1'
 #' p = 400
-#' ni = 20
+#' ni = 40
 #' K = 10
 #' error_dis = 't'
 #' tau = 3/4
@@ -429,7 +429,7 @@ RIAQ = function(X_temp, Y_temp, beta0 = NULL, tau, intercept = F, pen = 'MCP', c
 
         # bic
         biclist = sapply(Blist, function(ll) {
-            bic(Y_temp, X_temp, t(ll), tau = tau, cc = cc)
+            bic(Y_temp, X_temp, t(ll), tau = tau, cc = cc/3)
         })
         return(
             list(

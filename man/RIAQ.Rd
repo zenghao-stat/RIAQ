@@ -66,7 +66,7 @@ Implementation of the method proposed in the paper "Robust Integrative Analysis 
 \dontrun{
 dgp = 'dgp1'
 p = 400
-ni = 20
+ni = 40
 K = 10
 error_dis = 't'
 tau = 3/4

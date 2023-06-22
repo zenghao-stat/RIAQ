@@ -5,15 +5,6 @@ bic <- function(Y_temp, X_temp, Bmat, type = 'zhang',tau = 1/2,cc=1/10) { #
     p = dim(X_temp[[1]])[2]
     n = dim(X_temp[[1]])[1]
 
-    # AMS = function(B){
-    #     ams = NULL
-    #     for (j in 1:ncol(B)) {
-    #         ams = c(ams, sum(unique(B[,j]) !=0 ))
-    #     }
-    #     ams = sum(ams)
-    #     return(ams)
-    # }
-
     AMS <-  function(B){ #
         ams = NULL
         B = matrix(B)
@@ -43,7 +34,6 @@ bic <- function(Y_temp, X_temp, Bmat, type = 'zhang',tau = 1/2,cc=1/10) { #
         }
         qsum = AMS((Bmat))
         logmse = log(loss/n)
-        # logsparsity = cc*log(log(n))*(log(K*p)/n)*qsum #Zhang 2019
         logsparsity = cc*log(log(K*p))*(log(n)/n)*qsum #yang 2019
         bic = logmse + logsparsity
     }
@@ -382,29 +372,6 @@ RIAQ = function(X_temp, Y_temp, beta0 = NULL, tau, intercept = F, pen = 'MCP', c
 
         i = 1
         j = 1
-        # while ((!all(Bmat.uniqueN == 1)) & (!all(Bmat.uniqueN == 0))) {
-        #     gamma = gammalist[indM[i, 1]]
-        #     lambda = lambdalist[indM[i, 2]]
-        #     fit = estimationonce( K, nk, beta0 = beta0, X_temp, Y_temp, pen = pen, ini.lambda = ini.lambda, nADMM, Y, tau = tau, intercept = intercept, rho3, X, rho1, E, rho2, AL, D, gamma, lambda, n, tol , p, show = is.show )
-        #     Bmat = (round(fit$Bmat, 3))
-        #     iter = fit$iter
-        #     Bmat.uniqueN = apply(Bmat, 1, function(ll) {length(unique(ll[ll != 0]))})
-        #
-        #     if (is.show) {
-        #         cat( i,' ', "gam = ", round(gamma, 4), "lambda =", round(lambda, 4),'bic = ', bic(Y_temp, X_temp, t(Bmat), tau = tau, cc = cc)$bic, "\t", Bmat.uniqueN, ' iter = ', fit$iter, ' primalRes = ', fit$primalRes,  "\n" )
-        #     }
-        #
-        #     Blist = c(Blist, list(Bmat))
-        #     path.gamma = c(path.gamma, gamma)
-        #     path.lambda = c(path.lambda, lambda)
-        #     iterList = c(iterList, iter)
-        #     if (i < paraLen * paraLen) {
-        #         i = i + 1
-        #     } else{
-        #         warning('need larger range of turning parameters')
-        #         break
-        #     }
-        # }
 
 
         for (i in 1:length(gammalist)) {
